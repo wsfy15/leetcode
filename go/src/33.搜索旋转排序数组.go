@@ -6,6 +6,32 @@
 
 // @lc code=start
 func search(nums []int, target int) int {
+  left, right := 0, len(nums) - 1
+  for left <= right {
+    mid := left + (right - left) >> 1
+    if nums[mid] == target {
+      return mid
+    }
+    
+    if nums[left] <= nums[mid] { // 左边升序
+      if nums[left] <= target && target <= nums[mid] {
+        right = mid - 1
+      } else {
+        left = mid + 1
+      }
+    } else { // 右边升序
+      if nums[mid] <= target && target <= nums[right] {
+        left = mid + 1
+      } else {
+        right = mid - 1
+      }
+    }
+  }
+  
+  return -1
+}
+
+func search2(nums []int, target int) int {
 		n := len(nums)
 		if n == 0 {
 			return -1

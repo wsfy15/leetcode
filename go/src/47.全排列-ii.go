@@ -16,7 +16,11 @@ func permuteUnique(nums []int) [][]int {
 
 func generate(nums, cur []int, res *[][]int, used []bool, depth int) {
 	if depth == len(nums) {
-		*res = append(*res, cur)
+		// 需要拷贝到新数组，不能直接使用cur，否则可能因为调用函数对cur的修改而产生影响
+		dst := make([]int, depth)
+		copy(dst, cur)
+		*res = append(*res, dst)
+		// *res = append(*res, cur)
 		return
 	}
 

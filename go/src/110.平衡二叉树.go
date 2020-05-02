@@ -17,7 +17,7 @@
   if root == nil {
     return true
   }
-  return height(root) ！= -1
+  return height(root) != -1
 }
 
 func height(root *TreeNode) int {

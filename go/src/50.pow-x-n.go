@@ -52,8 +52,5 @@ func myPow2(x float64, n int) float64 {
 	}
 	return res
 }
-
-
-
 // @lc code=end
 

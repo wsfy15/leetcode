@@ -8,6 +8,20 @@
 func firstUniqChar(s string) int {
 	counter := make([]int, 26)
 	for i := 0; i < len(s); i++ {
+		counter[s[i] - 'a']++
+	}
+
+	for i := 0; i < len(s); i++ {
+		if counter[s[i] - 'a'] == 1 {
+			return i
+		}
+	}
+	return -1
+}
+
+func firstUniqChar2(s string) int {
+	counter := make([]int, 26)
+	for i := 0; i < len(s); i++ {
 		if counter[s[i] - 'a'] == 0 {
 			// 第一次出现
 			counter[s[i] - 'a'] = i + 1

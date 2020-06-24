@@ -34,9 +34,10 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 			return dummy.Next
 		}
 
-		next :=  tmp.Next
+		next := tmp.Next
 		last := tmp
 		curBackup := cur
+		// 依次把每个节点放到last后面去
 		for i := 1; i < k; i++ {
 			prev.Next = cur.Next
 			cur.Next = last.Next

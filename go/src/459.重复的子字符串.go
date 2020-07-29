@@ -5,12 +5,9 @@
  */
 
 // @lc code=start
+// "babbabbabbabbab" false true
 func repeatedSubstringPattern(s string) bool {
 	n := len(s)
-	if n & 1 > 0 {
-		return false
-	}
-
 	// 周期为i
 	for i := 1; i <= n >> 1; i++ {
 		if n % i > 0 {
@@ -18,8 +15,8 @@ func repeatedSubstringPattern(s string) bool {
 		}
 
 		j := i
-		for j < n && s[j] == s[j % i] {
-			j++
+		for j < n && s[:i] == s[j: j + i] {
+			j += i
 		}
 		if j == n {
 			return true

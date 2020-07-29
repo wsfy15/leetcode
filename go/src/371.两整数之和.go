@@ -6,11 +6,11 @@
 
 // @lc code=start
 func getSum(a int, b int) int {
-	carry := a & b
+	carry := (a & b) << 1
 	a = a ^ b
 	
-	for carry > 0 {
-		a, carry = a ^ (carry << 1), a & (carry << 1)
+	for carry != 0 { // 有可能是负数
+		a, carry = a ^ carry, (a & carry) << 1
 	}
 
 	return a

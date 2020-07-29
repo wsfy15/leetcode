@@ -16,7 +16,7 @@
 //  类似数组前n项和的思路，sum[4] == sum[1]的话，说明从 1 到 4 的路径和为0
 func pathSum(root *TreeNode, sum int) int {
 	nums := map[int]int{}
-	// nums[0] = 1
+	nums[0] = 1
 	return dfs(root, sum, 0, nums)
 }
 

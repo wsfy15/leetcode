@@ -13,11 +13,11 @@ func addStrings(num1 string, num2 string) string {
 
 	n, m := len(num1), len(num2)
 	var carry byte = 0
-	for i := 0; i < n; i++ {
+	for i := n - 1; i >= 0; i-- {
 		var tmp byte = num1[i] - '0' + carry
 		carry = 0
-		if i < m {
-			tmp += num2[i] - '0'
+		if m - (n - i) >= 0 {
+			tmp += num2[m - (n - i)] - '0'
 		}
 		if tmp > 9 {
 			carry = 1
@@ -27,12 +27,14 @@ func addStrings(num1 string, num2 string) string {
 	}
 
 	if carry > 0 {
-		res = append(res, carry)
+		res = append(res, '0' + carry)
 	}
 
 	i, j := 0, len(res) - 1
 	for i < j {
 		res[i], res[j] = res[j], res[i]
+		i++
+		j--
 	}
 	return string(res)
 }

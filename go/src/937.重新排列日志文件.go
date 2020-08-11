@@ -6,16 +6,18 @@
 
 // @lc code=start
 func reorderLogFiles(logs []string) []string {
-	sort.Slice(logs, func(i, j int) bool {
-		iparts, jparts := strings.Split(logs[i], " "), strings.Split(logs[j], " ")
-		if isDigit(iparts[1][0]) && isDigit(jparts[1][0]) {
-			return i < j
-		} else if isDigit(iparts[1][0]) {
-			return false
-		} else if isDigit(jparts[1][0]) {
-			return true
+	n, index := len(logs)-1, len(logs)-1
+	for n >= 0 {
+		parts := strings.Split(logs[n], " ")
+		if isDigit(parts[1][0]) {
+			logs[n], logs[index] = logs[index], logs[n]
+			index--
 		}
+		n--
+	}
 
+	sort.Slice(logs[:index+1], func(i, j int) bool {
+		iparts, jparts := strings.Split(logs[i], " "), strings.Split(logs[j], " ")
 		iid, jid := iparts[0], jparts[0]
 		if logs[i][len(iid):] == logs[j][len(jid):] {
 			return iid < jid
@@ -29,5 +31,6 @@ func reorderLogFiles(logs []string) []string {
 func isDigit(ch byte) bool {
 	return '0' <= ch && ch <= '9'
 }
+
 // @lc code=end
 

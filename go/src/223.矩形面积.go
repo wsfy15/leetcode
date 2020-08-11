@@ -14,7 +14,7 @@ func computeArea(A int, B int, C int, D int, E int, F int, G int, H int) int {
 		return (C - A) * (D - B) + (G - E) * (H - F)
 	}
 
-	width, height := C - E, 0
+	width, height := min(C, G) - E, 0
 	if D >= H && B <= H {
 		height = H - max(B, F)
 	} else if H >= D && D >= F {
@@ -28,6 +28,16 @@ func max(a ...int) int {
 	res := a[0]
 	for _, v := range a {
 		if res < v {
+			res = v
+		}
+	}
+	return res
+}
+
+func min(a ...int) int {
+	res := a[0]
+	for _, v := range a {
+		if res > v {
 			res = v
 		}
 	}

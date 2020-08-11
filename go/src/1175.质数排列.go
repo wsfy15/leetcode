@@ -1,10 +1,23 @@
 /*
- * @lc app=leetcode.cn id=204 lang=golang
+ * @lc app=leetcode.cn id=1175 lang=golang
  *
- * [204] 计数质数
+ * [1175] 质数排列
  */
 
 // @lc code=start
+func numPrimeArrangements(n int) int {
+	primeNum := countPrimes(n)
+	res := 1 // 质数的全排列 X 非质数全排列
+	for i := 1; i <= primeNum; i++ {
+		res = (res * i) % 1_000_000_007
+	}
+	for i := 1; i <= n-primeNum; i++ {
+		res = (res * i) % 1_000_000_007
+	}
+
+	return res
+}
+
 func countPrimes(n int) int {
 	count := 0
 	isNotPrime := make([]byte, n)

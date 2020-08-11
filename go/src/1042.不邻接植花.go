@@ -17,7 +17,7 @@ func gardenNoAdj(N int, paths [][]int) []int {
 	for i := 1; i <= N; i++ {
 		used := [5]bool{}
 		for _, j := range g[i] {
-			used[j] = true
+			used[res[j-1]] = true
 		}
 		for j := 1; j < 5; j++ {
 			if !used[j] {

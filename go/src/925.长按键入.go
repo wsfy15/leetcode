@@ -15,7 +15,7 @@ func isLongPressedName(name string, typed string) bool {
 	for i := 0; i < n; i++ {
 		if j < m && name[i] == typed[j] {
 			j++
-			if i + 1 < n && name[i] != name[i + 1] {
+			if (i+1 < n && name[i] != name[i+1]) || i == n-1 {
 				for j < m && typed[j] == name[i] {
 					j++
 				}
@@ -27,5 +27,6 @@ func isLongPressedName(name string, typed string) bool {
 
 	return j == m
 }
+
 // @lc code=end
 

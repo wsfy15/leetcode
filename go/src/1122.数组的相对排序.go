@@ -15,7 +15,7 @@ func relativeSortArray(arr1 []int, arr2 []int) []int {
 			}
 		}
 	}
-
+	sort.Ints(arr1[index:])
 	return arr1
 }
 

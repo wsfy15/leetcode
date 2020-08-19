@@ -10,10 +10,11 @@ func numPairsDivisibleBy60(time []int) int {
 	count := [60]int{}
 	for _, t := range time {
 		t %= 60
-		res += count[60 - t]
+		res += count[(60-t)%60]
 		count[t]++
 	}
 	return res
 }
+
 // @lc code=end
 

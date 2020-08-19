@@ -15,7 +15,12 @@ func dayOfYear(date string) int {
 	if year%4 == 0 && (year%100 != 0 || year%400 == 0) {
 		months[2]++
 	}
-	return day + months[month-1]
+
+	res := day
+	for i := 1; i < month; i++ {
+		res += months[i]
+	}
+	return res
 }
 
 // @lc code=end

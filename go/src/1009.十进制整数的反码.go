@@ -6,13 +6,12 @@
 
 // @lc code=start
 func bitwiseComplement(N int) int {
-	tmp := N
 	num := 1
-	for tmp > 0 {
-		tmp >>= 1
-		num <<= 1
+	for num < N {
+		num = (num << 1) + 1
 	}
-	return num - N - 1
+	return num ^ N
 }
+
 // @lc code=end
 

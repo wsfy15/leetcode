@@ -22,6 +22,7 @@ func judge(nums []float64) bool {
 	}
 
 	n := len(nums)
+	// 每次取两个数进行运算
 	for i := 0; i < n; i++ {
 		// j也要从0开始，因为减法、除法不满足交换律
 		for j := 0; j < n; j++ {
@@ -48,7 +49,7 @@ func judge(nums []float64) bool {
 					case 2:
 						nums2 = append(nums2, nums[i] - nums[j])
 					case 3:
-						if nums[j] != 0 {
+						if nums[j] != 0 { // abs(nums[j]) > 1e-6
 							nums2 = append(nums2, nums[i] / nums[j])
 						} else {
 							continue

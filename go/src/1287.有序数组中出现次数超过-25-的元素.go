@@ -17,7 +17,7 @@ func findSpecialInteger(arr []int) int {
 			num, startIndex = v, i
 		}
 	}
-	return arr[0]
+	return arr[len(arr) - 1]
 }
 
 // @lc code=end

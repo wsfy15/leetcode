@@ -6,6 +6,8 @@
 
 // @lc code=start
 func findDisappearedNumbers(nums []int) []int {
+	// 以数组的每个元素为下标，将对应数组值置为其值的负数
+	// 最后仍为正数的元素的下标，就代表没出现的元素
 	n := len(nums)
 	for i := 0; i < n; i++ {
 		nums[abs(nums[i]) - 1] = -abs(nums[abs(nums[i]) - 1])

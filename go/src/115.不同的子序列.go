@@ -11,7 +11,7 @@ func numDistinct(s string, t string) int {
 		return 0
 	}
 
-	dp := make([][]int, m + 1)
+	dp := make([][]int, m + 1) // dp[i][j]: s[:j]中t[:i]的子序列个数
 	for i := 0; i <= m; i++ {
 		dp[i] = make([]int, n + 1)
 	}

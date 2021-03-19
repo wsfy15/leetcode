@@ -10,7 +10,7 @@ type NumArray struct {
 	n int
 }
 
-
+// 线段树
 func Constructor(nums []int) NumArray {
 	n := len(nums)
 	tree := make([]int, n * 2)

@@ -31,8 +31,8 @@ func calculate(s string) int {
 
 		case ')':
 			res += sign * num
-			res *= stack[len(stack) - 1] 
-			res += stack[len(stack) - 2] 
+			res *= stack[len(stack) - 1]  // sign
+			res += stack[len(stack) - 2]  // res
 			stack = stack[:len(stack) - 2] 
 			num = 0
 

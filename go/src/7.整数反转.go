@@ -6,6 +6,29 @@
 
 // @lc code=start
 func reverse(x int) int {
+	high, low := math.MaxInt32/10, math.MinInt32/10
+	var res int
+	for x != 0 {
+		cur := x % 10
+		x /= 10
+
+		// 向上溢出
+		if res > high || (res == high && cur > 7) {
+			return 0
+		}
+
+		// 向下溢出
+		if res < low || (res == low && cur < -8) {
+			return 0
+		}
+
+		res = res*10 + cur
+	}
+
+	return res
+}
+
+func reverse2(x int) int {
 	var num int64 = int64(x)
 	var cur int64
 	var flag int64 = 1
@@ -15,7 +38,7 @@ func reverse(x int) int {
 	}
 
 	for num > 0 {
-		cur = cur * 10 + num % 10
+		cur = cur*10 + num%10
 		num /= 10
 	}
 	cur *= flag
@@ -25,5 +48,6 @@ func reverse(x int) int {
 	}
 	return int(cur)
 }
+
 // @lc code=end
 

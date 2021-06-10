@@ -10,17 +10,24 @@ func intToRoman(num int) string {
 	str := []string{"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"}
 
 	sb := strings.Builder{}
-	for num > 0 {
-		for i := 0; i < len(value); i++ {
-			if num >= value[i] {
-				num -= value[i]
-				sb.WriteString(str[i])
-				break
-			}
+	for i := 0; i < len(value) && num > 0; i++ {
+		for num >= value[i] {
+			num -= value[i]
+			sb.WriteString(str[i])
 		}
 	}
+	// for num > 0 {
+	// 	for i := 0; i < len(value); i++ {
+	// 		if num >= value[i] {
+	// 			num -= value[i]
+	// 			sb.WriteString(str[i])
+	// 			break
+	// 		}
+	// 	}
+	// }
 
 	return sb.String()
 }
+
 // @lc code=end
 

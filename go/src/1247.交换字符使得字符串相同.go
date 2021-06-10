@@ -24,6 +24,8 @@ func minimumSwap(s1 string, s2 string) int {
 		return -1
 	}
 
+	// xx、yy 交换一次
+	// xy、yx 交换两次
 	res := x/2 + y/2
 	res += 2 * (x % 2)
 	return res

@@ -5,7 +5,7 @@
  */
 
 // @lc code=start
-/** 
+/**
  * Forward declaration of guess API.
  * @param  num   your guess
  * @return 	     -1 if num is lower than the guess number
@@ -17,13 +17,13 @@
 func guessNumber(n int) int {
 	low, high := 1, n
 	for low < high {
-		mid := low + (high - low) >> 1
+		mid := low + (high-low)>>1
 
 		tmp := guess(mid)
 		if tmp == 0 {
 			return mid
 		} else if tmp == -1 {
-			high = mid
+			high = mid - 1
 		} else {
 			low = mid + 1
 		}
@@ -31,5 +31,6 @@ func guessNumber(n int) int {
 
 	return low
 }
+
 // @lc code=end
 

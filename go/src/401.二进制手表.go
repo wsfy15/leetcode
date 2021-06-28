@@ -6,6 +6,7 @@
 
 // @lc code=start
 func readBinaryWatch(num int) []string {
+	// 先计算每个数有多少位1，然后对小时和分钟 1的位数和为num拼接字符串
 	var res []string
 	bits := make([]int, 60)
 	for i := 0; i < 60; i++ {
@@ -14,12 +15,12 @@ func readBinaryWatch(num int) []string {
 
 	for i := 0; i < 12; i++ {
 		for j := 0; j < 60; j++ {
-			if bits[i] + bits[j] == num {
+			if bits[i]+bits[j] == num {
 				str := strconv.Itoa(i) + ":"
 				if j < 10 {
 					str += "0"
 				}
-				res = append(res, str + strconv.Itoa(j))
+				res = append(res, str+strconv.Itoa(j))
 			}
 		}
 	}

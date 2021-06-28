@@ -6,11 +6,11 @@
 
 // @lc code=start
 type trieNode struct {
-	ch byte
+	ch       byte
 	children [26]*trieNode
 }
 
-func(this *trieNode) Insert(word string) bool {
+func (this *trieNode) Insert(word string) bool {
 	cur := this
 	flag := false
 	for i := len(word) - 1; i >= 0; i-- {
@@ -41,5 +41,5 @@ func minimumLengthEncoding(words []string) int {
 
 	return count
 }
-// @lc code=end
 
+// @lc code=end

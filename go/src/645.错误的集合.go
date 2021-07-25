@@ -8,7 +8,7 @@
 func findErrorNums(nums []int) []int {
 	n := len(nums)
 	sum, actualSum := 0, 0
-	exist := make([]bool, n + 1)
+	exist := make([]bool, n+1)
 	for _, num := range nums {
 		if !exist[num] {
 			exist[num] = true
@@ -17,7 +17,8 @@ func findErrorNums(nums []int) []int {
 		sum += num
 	}
 
-	return []int{sum - actualSum, (n + 1) * n / 2 - actualSum}
+	return []int{sum - actualSum, (n+1)*n/2 - actualSum}
 }
+
 // @lc code=end
 
